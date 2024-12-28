@@ -1,0 +1,12 @@
+version: "3.8" # Docker Composeのバージョンを指定
+
+services:
+  ruby-app: # Rubyのコンテナサービス名
+    build:
+      context: . # Dockerfileがあるディレクトリ
+    container_name: ruby_app_container # コンテナ名
+    volumes:
+      - .:/app # ホストのカレントディレクトリをコンテナ内の/appにマウント
+    working_dir: /app # コンテナ内の作業ディレクトリ
+    ports:
+      - "3000:3000" # コンテナの3000ポートをホストの3000ポートにマッピング
